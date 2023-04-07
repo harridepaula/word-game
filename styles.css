@@ -1,0 +1,97 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-image: url(images/letter-background.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #game-container {
+    background-color: #fff3e6;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #f06292;
+    font-size: 2.5rem;
+  }
+  
+  #word-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .letter-box {
+    border: 2px solid #ba68c8;
+    background-color: #e1bee7;
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 24px;
+    border-radius: 5px;
+  }
+  
+  #message {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #42a5f5;
+  }
+  
+  #attempts-remaining {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #ef5350;
+  }
+  
+  #letter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .letter-btn {
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .letter-btn:hover {
+    background-color: #4caf50;
+  }
+  
+  .letter-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  #restart-btn {
+    display: block;
+    background-color: #ffa726;
+    color: white;
+    font-size: 18px;
+    padding: 10px 30px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #restart-btn:hover {
+    background-color: #ff9800;
+  }
