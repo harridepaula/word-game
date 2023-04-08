@@ -1,5 +1,5 @@
 const words = ['apple', 'banana', 'grapefruit', 'kiwi', 'mango', 'orange', 'strawberry'];
-const maxAttempts = 6;
+let maxAttempts = 10;
 let attempts = maxAttempts;
 let guessedLetters = new Set();
 let currentWord;
@@ -12,6 +12,7 @@ function initializeGame() {
   displayMessage('');
   displayAttemptsRemaining();
   createLetterButtons();
+  resetLetterColors(); // Add this line to reset letter colors
 }
 
 function displayWord() {
@@ -45,33 +46,41 @@ function displayAttemptsRemaining() {
 function createLetterButtons() {
   const letterContainer = document.getElementById('letter-container');
   letterContainer.innerHTML = '';
-
-  for (let i = 97; i <= 122; i++) {
-    const letter = String.fromCharCode(i);
-    const button = document.createElement('button');
-    button.classList.add('letter-btn');
-    button.textContent = letter;
-    button.addEventListener('click', () => handleLetterClick(letter));
-    letterContainer.appendChild(button);
-  }
-}
-
-function handleLetterClick(letter) {
-  if (guessedLetters.has(letter) || attempts === 0) {
-    return;
+  
+    for (let i = 97; i <= 122; i++) {
+      const letter = String.fromCharCode(i);
+      const button = document.createElement('button');
+      button.classList.add('letter-btn');
+      button.textContent = letter;
+      button.setAttribute('data-letter', letter);
+      button.addEventListener('click', () => handleLetterClick(letter));
+      letterContainer.appendChild(button);
+    }
   }
 
-  guessedLetters.add(letter);
-
-  if (currentWord.includes(letter)) {
-    displayWord();
-    checkForWin();
-  } else {
-    attempts--;
-    displayAttemptsRemaining();
-    checkForLoss();
+  function handleLetterClick(letter) {
+    if (guessedLetters.has(letter) || attempts === 0) {
+      return;
+    }
+  
+    guessedLetters.add(letter);
+    const clickedButton = document.querySelector(`.letter-btn[data-letter="${letter}"]`);
+    clickedButton.classList.add('visited-letter');
+  
+    if (currentWord.includes(letter)) {
+      displayWord();
+      checkForWin();
+    } else {
+      attempts--;
+      displayAttemptsRemaining();
+      checkForLoss();
+    }
   }
-}
+
+  function resetLetterColors() {
+    const letterButtons = document.querySelectorAll('.letter-btn');
+    letterButtons.forEach(button => button.classList.remove('visited-letter'));
+  }
 
 function checkForWin() {
   if (Array.from(currentWord).every(letter => guessedLetters.has(letter))) {
@@ -111,5 +120,19 @@ function enableButtons() {
   }
 }
 
-initializeGame();
+function setDifficulty(difficulty) {
+  switch (difficulty) {
+    case 'easy':
+      maxAttempts = 15;
+      break;
+    case 'medium':
+      maxAttempts = 10;
+      break;
+    case 'hard':
+      maxAttempts = 5;
+      break;
+  }
+  initializeGame(); // Reinitialize the game after changing maxAttempts
+}
+
 addRestartButtonListener();
