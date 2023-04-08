@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn English with JavaScript</title>
+  <title>English Word Guessing Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,10 +18,12 @@
     <div id="message"></div>
     <div id="attempts-remaining"></div>
     <div id="letters">
-      <p>Click a letter to guess:</p>
+      <p id="message" class="hidden">Click a letter to guess:</p>
       <div id="letter-container"></div>
     </div>
-    <button id="restart-btn">Restart Game</button>
+    <div class="footer">
+    <button id="restart-btn" class="hidden">Restart</button>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>

@@ -9,6 +9,7 @@ body {
   }
   
   #game-container {
+    position: relative;
     background-color: #fff3e6;
     padding: 30px;
     border-radius: 20px;
@@ -86,19 +87,19 @@ body {
   }
   
   #restart-btn {
-    display: block;
-    background-color: #ffa726;
+    background-color: #7dade9;
     color: white;
     font-size: 18px;
     padding: 10px 30px;
-    margin: 20px auto;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 20px auto 0px;
+    float: right;
   }
   
   #restart-btn:hover {
-    background-color: #ff9800;
+    background-color: #638fc4;
   }
 
   .level button {
@@ -117,10 +118,26 @@ body {
     background-color: #19c86d;
   }
 
+  #easy:hover {
+    background-color: #09ab57;
+  }
+
   #medium {
     background-color: #ffa726;
   }
 
+  #medium:hover {
+    background-color: #ed9510;
+  }
+
   #hard {
     background-color: #e73c3c;
+  }
+  
+  #hard:hover {
+    background-color: #cd1e1e;
+  }
+
+  .hidden {
+    display: none;
   }

@@ -33,6 +33,14 @@ function displayWord() {
   }
 }
 
+function showGameElements() {
+  const restartButton = document.getElementById('restart-btn');
+  const messageElement = document.getElementById('message');
+
+  restartButton.classList.remove('hidden');
+  messageElement.classList.remove('hidden');
+}
+
 function displayMessage(text) {
   const messageElement = document.getElementById('message');
   messageElement.textContent = text;
@@ -132,7 +140,9 @@ function setDifficulty(difficulty) {
       maxAttempts = 5;
       break;
   }
-  initializeGame(); // Reinitialize the game after changing maxAttempts
+
+  showGameElements(); // Add this line to show the restart button and message
+  initializeGame();
 }
 
 addRestartButtonListener();
