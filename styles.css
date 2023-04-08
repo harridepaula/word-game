@@ -1,6 +1,6 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-image: url(images/letter-background.png);
+    background: rgb(78,201,229);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,12 +10,13 @@ body {
   
   #game-container {
     position: relative;
-    background-color: #fff3e6;
+    background-color: aliceblue;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     width: 70vw;
     max-width: 580px;
+    box-shadow: 0px 10px 30px rgb(40, 60, 100, 0.57);
   }
   
   h1 {
